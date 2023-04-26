@@ -33,7 +33,39 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
 
+    flavorDimensions 'api', 'productType', 'country'
+
+    productFlavors {
+        dev {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+        }
+        pilot {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+        }
+        prod {
+            dimension 'api'
+            buildConfigField('String', 'BASE_URL', '"https://api.themoviedb.org/"')
+        }
+        freemium {
+            dimension 'productType'
+            buildConfigField('Boolean', 'isPremium', 'false')
+        }
+        freemium {
+            dimension 'productType'
+            buildConfigField('Boolean', 'isPremium', 'false')
+        }
+        turkey {
+            dimension 'country'
+            buildConfigField('String', 'country', '"turkey"')
+        }
+        germany {
+            dimension 'country'
+            buildConfigField('String', 'country', '"germany"')
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
